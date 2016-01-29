@@ -16,55 +16,77 @@
         <h1>Casa De Pizza <small>1(800)300-4567</small> <span class="label label-info">Subscribe</span></h1>
       </div>
       <h3>Place your order today!</h3>
-      <form id="dallas">
-        <div class="row"><br>
-
-          <div class="col-sm-6">
-          <h5>Size:</h5>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosSML" id="sm" value="small" checked>
-                SMALL
-              </label>
+        <form id="dallas">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="formGroupExampleInput">Name:</label>
+                <input type="text" class="form-control" id="name">
+              </div>
             </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosSML" id="md" value="medium" checked>
-                MEDIUM
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosSML" id="lrg" value="large" checked>
-                LARGE
-              </label>
-            </div>
-          </div><br>
-
-          <div class="col-sm-6">
-          <h5>Toppings:</h5>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosTT" id="ppr" value="pepperoni" checked>
-                Pepperoni
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosTT" id="jal" value="jalapeno" checked>
-                Jalapeno
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="optionsRadiosTT" id="msh" value="mushrooms" checked>
-                Mushrooms
-              </label>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="formGroupExampleInput2">Address (For Delivery Option):</label>
+                <input type="text" class="form-control" id="Address">
+              </div>
             </div>
           </div>
+
+          <div class="row"><br>
+            <div class="col-sm-4">
+              <label for="howMany">Quantity of Pizza's</label>
+                <input id="quantity" type="number">
+            </div>
+            <div class="col-sm-4">
+              <h4>Size:</h4>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadiosSML" id="sm" value="small" checked>
+                  Small $5
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadiosSML" id="md" value="medium" checked>
+                  Medium $8
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadiosSML" id="lrg" value="large" checked>
+                  Large $10
+                </label>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <h4>Pick Your Toppings:</h4>
+                <label class="checkbox-inline">
+                  <input type="checkbox"name="toppingCheck"  id="inlineCheckbox1" value="Pineapple">Pineapple
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="toppingCheck" id="inlineCheckbox2" value="Pepperoni"> Pepperoni
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"name="toppingCheck" id="inlineCheckbox3" value="Onion"> Onions
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"name="toppingCheck"  id="inlineCheckbox4" value="Mushrooms"> Mushrooms
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"name="toppingCheck"  id="inlineCheckbox5" value="Green Peppers"> Green Peppers
+                </label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success" name="button">Pizza Time</button>
+        </form>
+
+        <div class="orderConfirm col-md-6">
+          <p> Thanks <span class="printName"></span> for choosing Casa de Pizza!</p>
+          <p>Here is a summary of your order:</p>
+          <ul id="result"></ul>
         </div>
-        <button type="submit" class="btn btn-success" name="button">Pizza Time</button>
-      </form>
     </div>
     <div align="center" style="z-index:9;visibility:visible;"></div><style>HTML,BODY{cursor: url("http://downloads.totallyfreecursors.com/cursor_files/pizza.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/pizza.gif"), auto;}</style>
   </body>
