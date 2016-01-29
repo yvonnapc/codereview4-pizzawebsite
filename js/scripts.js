@@ -4,13 +4,15 @@ function Pizza(size, toppings) {
   this.cost = 0;
 }
 
-Pizza.prototype.cost = function(){
-  if(this.size === small){
-  } return (this.cost = 5);
-  if(this.size === medium){
-  } return (this.cost = 8);
-  if (this.size === large){
-  } return(this.cost = 10);
+Pizza.prototype.sizeCost = function(){
+  var sizeCost;
+  if (this.size === small){
+  sizeCost = 5;
+  } if(this.size === medium){
+  sizeCost = 8;
+  } if(this.size === large){
+   sizeCost = 10;
+  }
 }
 
 // $(document).ready(function() {
