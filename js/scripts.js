@@ -1,5 +1,5 @@
-function Pizza(size, toppings, quantity) {
-  this.sizePizza = sizePizza;
+function Pizza(pizzaSize, toppings, quantity) {
+  this.pizzaSize = pizzaSize;
   this.toppings = toppings;
   this.quantity = parseInt(quantity);
   this.cost = 0;
@@ -7,18 +7,17 @@ function Pizza(size, toppings, quantity) {
 
 Pizza.prototype.sizePrice = function(){
   var sizePrice;
-    if (this.sizePizza === "Small"){
+    if (this.pizzaSize === "Small"){
     sizePrice = 5;
-  } else if(this.sizePizza === "Medium"){
+  } else if(this.pizzaSize === "Medium"){
     sizePrice = 8;
-  } else if(this.sizePizza === "Large"){
+  } else if(this.pizzaSize === "Large"){
     sizePrice = 10;
-  } return (sizePrice);
+  } return sizePrice * this.quantity;
 }
 
-Pizza.prototype.about = function(){
-  var toppingsChoice = this.toppings.toString();
-  return this.quantity + " " + this.sizePizza + "Pizza's with" + toppingsChoice;
+Pizza.prototype.addedToppings = function(){
+  return this.quantity + " " + this.pizzaSize + "Pizza's with" + toppingsChoice;
 }
 
 Pizza.prototype.numberOf = function(){
@@ -41,7 +40,8 @@ $(document).ready(function() {
     event.preventDefault();
     var selectedSize = $(this).find("input[name='optionsRadiosSML']:checked").val();
     var selectedToppings = $(this).find("input[name='toppingCheck']:checked").val();
-
-console.log(newPizza);
+    var selectedQuant = $(this).find("#quantity").val();
+    var newPizza = new Pizza(selectedSize, selectedToppings, selectedQuant);
+    console.log(newPizza);
 });
 });
