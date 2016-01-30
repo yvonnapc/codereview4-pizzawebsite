@@ -6,17 +6,17 @@ function Pizza(pizzaSize, toppings, quantity) {
 }
 
 Pizza.prototype.sizePrice = function(){
-  var sizePrice;
+  var cost;
     if (this.pizzaSize === "Small"){
-    sizePrice = 5;
+    cost = 5;
   } else if(this.pizzaSize === "Medium"){
-    sizePrice = 8;
+    cost = 8;
   } else if(this.pizzaSize === "Large"){
-    sizePrice = 10;
-  } return sizePrice * this.quantity;
-}
+    cost = 10;
+  } return cost;
 
 Pizza.prototype.addedToppings = function(){
+  var toppingsChoice = this.toppings.toString();
   return this.quantity + " " + this.pizzaSize + "Pizza's with" + toppingsChoice;
 }
 
@@ -32,16 +32,22 @@ Pizza.prototype.totalCost = function(){
   var orderTotal = 0;
   this.pizzasOrdered.forEach(function(Pizza){
     orderTotal = orderTotal + Pizza.quantity;
-  })
+  });
 }
 //-----------------------------jQuery-------------------------------------//
 $(document).ready(function() {
   $("form#dallas").submit(function(event){
     event.preventDefault();
+    var userName = $("input#name").val();
     var selectedSize = $(this).find("input[name='optionsRadiosSML']:checked").val();
-    var selectedToppings = $(this).find("input[name='toppingCheck']:checked").val();
+    var selectedToppings = $(this).find();
     var selectedQuant = $(this).find("#quantity").val();
+
     var newPizza = new Pizza(selectedSize, selectedToppings, selectedQuant);
-    console.log(newPizza);
-});
+
+    $(".printName").text("input#yvonna");
+    $(".orderConfirm").show();
+    $("#result").append(this.size);
+
+  });
 });
