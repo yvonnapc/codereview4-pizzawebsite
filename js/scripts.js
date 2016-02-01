@@ -13,40 +13,62 @@ Pizza.prototype.sizePrice = function(){
     cost = 8;
   } else if(this.pizzaSize === "Large"){
     cost = 10;
-  } return cost;
-
-Pizza.prototype.addedToppings = function(){
-  var toppingsChoice = this.toppings.toString();
-  return this.quantity + " " + this.pizzaSize + "Pizza's with" + toppingsChoice;
+  } else {
+    cost = 0;
+  }
+  return cost * this.quantity;
 }
 
-Pizza.prototype.numberOf = function(){
+Pizza.prototype.addedToppings = function(){
+  var toppingsChoices = this.toppings.toString();
+
+  return this.quantity + " " + this.pizzaSize + " Pizzas " + toppingsChoices;
+}
+
+function Profile(name, address, pizzaHistory){
+  this.name = name;
+  this.address = address;
+  this.pizzaHistory = [];
+}
+
+Profile.prototype.totalCost = function(){
   var totalNumber = 0;
-  this.pizzasOrdered.forEach(function(Pizza){
+  this.pizzaHistory.forEach(function(Pizza){
     totalNumber = totalNumber + Pizza.quantity;
   });
   return totalNumber;
 }
-
-Pizza.prototype.totalCost = function(){
-  var orderTotal = 0;
-  this.pizzasOrdered.forEach(function(Pizza){
-    orderTotal = orderTotal + Pizza.quantity;
-  });
-}
 //-----------------------------jQuery-------------------------------------//
 $(document).ready(function() {
+
   $("form#dallas").submit(function(event){
     event.preventDefault();
-    var userName = $("input#name").val();
-    var selectedSize = $(this).find("input[name='optionsRadiosSML']:checked").val();
-    var selectedToppings = $(this).find();
-    var selectedQuant = $(this).find("#quantity").val();
 
-    var newPizza = new Pizza(selectedSize, selectedToppings, selectedQuant);
+    var userName = $("input#yvonna").val();
+    var userAddress = $(".Address").val();
+    var userOrder = new Profile (userName, userAddress);
 
-    $(".printName").text("input#yvonna");
+      $("#toppy").each(function(){
+      var selectedSize = $(this).find("[name='optionsRadiosSML']:checked").val();
+      var selectedToppings = []
+        $("input[name='toppingCheck']:checked").each(function(){
+          selectedToppings.push($(this).val());
+        });
+      var selectedQuant = $(this).find("#quantity").val();
+      var pizzaHistory = [];
+      var newPizza = new Pizza(userName, userAddress, selectedSize, selectedToppings, selectedQuant);
+        // newPizza.pizzaHistory.push($(newPizza).val());
+        newPizza.cost = newPizza.sizePrice();
+console.log(newPizza);
+
+    });
+
+
     $(".orderConfirm").show();
+
+    $(".printName").text(userOrder.name);
+    $(".printAddress").text(userOrder.Address);
+    // $(".toppings").;
     $("#result").append(this.size);
 
   });
