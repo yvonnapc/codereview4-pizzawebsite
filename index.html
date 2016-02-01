@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <div class="row"><br>
+          <div id="toppy" class="row"><br>
             <div class="col-sm-4">
               <label for="howMany">Quantity of Pizza's</label>
                 <input id="quantity" type="number">
@@ -41,25 +41,25 @@
               <h4>Size:</h4>
               <div class="radio">
                 <label>
-                  <input type="radio" name="optionsRadiosSML" id="sm" value="small" checked>
+                  <input type="radio" name="optionsRadiosSML" id="sm" value="Small" checked>
                   Small $5
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="optionsRadiosSML" id="md" value="medium" checked>
+                  <input type="radio" name="optionsRadiosSML" id="md" value="Medium" checked>
                   Medium $8
                 </label>
               </div>
               <div class="radio">
                 <label>
-                  <input type="radio" name="optionsRadiosSML" id="lrg" value="large" checked>
+                  <input type="radio" name="optionsRadiosSML" id="lrg" value="Large" checked>
                   Large $10
                 </label>
               </div>
             </div>
 
-            <div id="toppy" class="col-sm-4">
+            <div class="col-sm-4">
               <h4>Pick Your $1 Toppings:</h4>
                 <label class="checkbox-inline">
                   <input type="checkbox" name="toppingCheck" value="pineapple">Pineapple
@@ -83,9 +83,12 @@
         </form>
 
         <div class="orderConfirm col-md-6">
-          <p> Thanks <span class="printName"></span> for choosing Casa de Pizza!</p>
+          <p> Thanks <strong><span class="printName"></span></strong> for choosing Casa de Pizza!</p>
           <p>Here is a summary of your order:</p>
+          <p>Address: <span class="printAddress"></span></p>
+          <p>Toppings: <span class="toppings"></span></p>
           <ul id="result"></ul>
+          <img src="img/spongebob.jpg">
         </div>
     </div>
     <div align="center" style="z-index:9;visibility:visible;"></div><style>HTML,BODY{cursor: url("http://downloads.totallyfreecursors.com/cursor_files/pizza.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/pizza.gif"), auto;}</style>
