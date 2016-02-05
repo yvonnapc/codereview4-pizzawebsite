@@ -7,11 +7,11 @@ function Pizza(pizzaSize, toppings, quantity) {
 
 Pizza.prototype.sizePrice = function(){
   var cost;
-    if (this.pizzaSize === "Small"){
+    if (this.pizzaSize === "small"){
     cost = 5;
-  } else if(this.pizzaSize === "Medium"){
+  } else if(this.pizzaSize === "medium"){
     cost = 8;
-  } else if(this.pizzaSize === "Large"){
+  } else if(this.pizzaSize === "large"){
     cost = 10;
   } else {
     cost = 0;
@@ -41,35 +41,31 @@ Profile.prototype.totalCost = function(){
 //-----------------------------jQuery-------------------------------------//
 $(document).ready(function() {
 
-  $("form#dallas").submit(function(event){
+  $("form#userProfile").submit(function(event){
     event.preventDefault();
 
-    var userName = $("input#yvonna").val();
-    var userAddress = $(".Address").val();
+    var userName = $("input#name").val();
+    var userAddress = $("#Address").val();
     var userOrder = new Profile (userName, userAddress);
 
-      $("#toppy").each(function(){
-      var selectedSize = $(this).find("[name='optionsRadiosSML']:checked").val();
-      var selectedToppings = []
-        $("input[name='toppingCheck']:checked").each(function(){
-          selectedToppings.push($(this).val());
-        });
-      var selectedQuant = $(this).find("#quantity").val();
-      var pizzaHistory = [];
-      var newPizza = new Pizza(userName, userAddress, selectedSize, selectedToppings, selectedQuant);
-        // newPizza.pizzaHistory.push($(newPizza).val());
-        newPizza.cost = newPizza.sizePrice();
-console.log(newPizza);
-
+    var selectedSize = $("input[name='optionsRadiosSML']:checked").val();
+    var selectedToppings = []
+    $("input[name='toppingCheck']:checked").each(function(){
+      selectedToppings.push($(this).val());
     });
+    var selectedQuant = $("#quantity").val();
+    var pizzaHistory = [];
+    var newPizza = new Pizza(selectedSize, selectedToppings, selectedQuant);
+        // newPizza.pizzaHistory.push($(newPizza).val());
+    newPizza.cost = newPizza.sizePrice();
+console.log(newPizza);
 
 
     $(".orderConfirm").show();
-
     $(".printName").text(userOrder.name);
-    $(".printAddress").text(userOrder.Address);
-    // $(".toppings").;
-    $("#result").append(this.size);
-
+    $(".printAddress").text(userOrder.address);
+    $(".toppings").text(newPizza.toppings);
+    $("#printAdd").append(newPizza.selectedSize);
+    $("#printTotal").append(newPizza.cost);
   });
 });

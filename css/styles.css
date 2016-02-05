@@ -5,3 +5,7 @@ h3 {
 .orderConfirm {
   display: none;
 }
+
+body {
+  background-color: gray;
+}

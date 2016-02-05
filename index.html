@@ -16,12 +16,12 @@
         <h1>Casa De Pizza <small>1(800)300-4567</small> <span class="label label-info">Subscribe</span></h1>
       </div>
       <h3>Place your order today!</h3>
-        <form id="dallas">
+        <form id="userProfile">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="userName">Name:</label>
-                <input type="text" class="form-control" id="yvonna">
+                <input type="text" class="form-control" id="name">
               </div>
             </div>
             <div class="col-sm-6">
@@ -59,10 +59,10 @@
               </div>
             </div>
 
-            <div id="toppy" class="col-sm-4">
+            <div class="col-sm-4">
               <h4>Pick Your $1 Toppings:</h4>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="toppingCheck" value="pineapple">Pineapple
+                  <input type="checkbox" name="toppingCheck" value="pineapple"> Pineapple
                 </label>
                 <label class="checkbox-inline">
                   <input type="checkbox" name="toppingCheck" value="pepperoni"> Pepperoni
@@ -87,8 +87,9 @@
           <p>Here is a summary of your order:</p>
           <p>Address: <span class="printAddress"></span></p>
           <p>Toppings: <span class="toppings"></span></p>
-          <ul id="result"></ul>
-          <img src="img/spongebob.jpg">
+          <p id="printAdd"></p>
+          <p id="print"></p>
+          <!-- <img src="img/spongebob.jpg"> -->
         </div>
     </div>
     <div align="center" style="z-index:9;visibility:visible;"></div><style>HTML,BODY{cursor: url("http://downloads.totallyfreecursors.com/cursor_files/pizza.ani"), url("http://downloads.totallyfreecursors.com/thumbnails/pizza.gif"), auto;}</style>
